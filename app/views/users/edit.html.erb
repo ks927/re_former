@@ -1,0 +1,16 @@
+<h1>Edit User</h1>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+    <%= pluralize(@user.errors.count, "error") %>
+    <ul>
+    <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+Username: <%= f.text_field :username, value: 'Your Name' %> <br />
+Email: <%= f.text_field :email, value: 'example@example.com' %> <br />
+Password: <%= f.password_field :password %> <br />
+<%= f.submit %>
+<% end %>
